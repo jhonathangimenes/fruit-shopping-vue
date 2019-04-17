@@ -1,26 +1,13 @@
 <template>
-    <li class="list-group-item template">
+    <li class="list-group-item" @click="addCart()">
         <img :src="require('../assets/'+this.fruit.img)" width="50px" height="50px"/>
         <span class="item">{{ descriptionFormatted }} 1Kg</span>
         <span class="item">{{ valueFormatted }}</span>
-        <div class="peso ml-auto">
-            <a href=""><i class="fas fa-plus-circle"></i></a>
-            <div class="button-kg item">
-                <span class="value">{{ kg }}</span>
-            </div>
-            <a href=""><i class="fas fa-minus-circle"></i></a>
-        </div>
     </li>
 </template>
 
 <script>
 export default {
-    data() {
-        return {
-            kg: 5.544,
-            valor: 0.0
-        }
-    },
     props: {
         fruit: {
             type: Object,
@@ -36,6 +23,11 @@ export default {
         descriptionFormatted() {
             return this.fruit.description.substr(0,1).toUpperCase()+this.fruit.description.substr(1)
         }
+    },
+    methods: {
+        addCart() {
+            this.$emit('addFruitCart', this.fruit)
+        }
     }
 }
 </script>
@@ -50,22 +42,11 @@ export default {
         font-size: 15px;
         text-align: center;
     }
-    .template {
-        display: flex;
-        font-size: 25px;
-        font-family: 'Permanent Marker', cursive;
-    }
     .item {
         margin: 5px;
     }
-    .fas {
-        padding-top: 10px;
-    }
-    .peso {
-        display: flex;
-        padding-top: 15px;
-    }
     span {
-        padding-top: 10px;
+        font-family: 'Permanent Marker', cursive;
+        font-size: 20px;
     }
 </style>
