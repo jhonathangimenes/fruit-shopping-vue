@@ -45,8 +45,4 @@ export default {
     .item {
         margin: 5px;
     }
-    span {
-        font-family: 'Permanent Marker', cursive;
-        font-size: 20px;
-    }
 </style>

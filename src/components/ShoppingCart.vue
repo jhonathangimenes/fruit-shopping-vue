@@ -1,13 +1,26 @@
 <template>
     <li class="list-group-item template">
-        <img :src="require('../assets/'+this.fruit.img)" width="50px" height="50px"/>
-        <span>{{ descriptionFormatted }} {{ fruit.kg }}</span>
-        <div>
-            <button @click.prevent="addAmount()"><i class="fas fa-plus"></i></button>
-            {{ amount }}
-            <button@click.prevent="removeAmount()"><i class="fas fa-minus"></i></button>
+        <div class="col-2">
+            <img :src="require('../assets/'+this.fruit.img)" width="50px" height="50px"/>
         </div>
-        <span>Valor: {{ subtotalFormatted }}</span>
+        <div class="col-5">
+            <span>{{ descriptionFormatted }} {{ fruit.kg }}</span>
+            <span>{{ subtotalFormatted }}</span>
+        </div>
+        <div class="col-4 text-right">
+            <button class="button" @click.prevent="removeAmount()">
+                <i class="fas fa-minus"></i>
+            </button>
+            {{ amount }}
+            <button class="button" @click.prevent="addAmount()">
+                <i class="fas fa-plus"></i>
+            </button>
+        </div>
+        <div class="col-1">
+            <button class="ml-2 button" @click.prevent="removeFruit()">
+                <i class="far fa-trash-alt"></i>
+            </button>
+        </div>
     </li>
 </template>
 <script>
@@ -47,11 +60,39 @@ export default {
                 this.$emit('removeTotal', this.fruit.value)
             }
         },
+        removeFruit() {
+            this.$emit('removeFruit', [this.fruit.id, this.subtotal])
+        }
     }
 }
 </script>
 <style>
     .template {
         display: flex;
+    }
+    .col-2 {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .col-5 {
+        padding: 7px 0px 7px 0px;  
+    }
+    .col-4 {
+        padding: 7px 0px 7px 0px; 
+    }
+    .col-1 {
+        padding: 7px 0px 7px 0px; 
+    }
+    .button {
+        border:none!important;
+        background-color: white!important;
+        padding: 4px 8px 4px 8px;
+        border-radius: 100%
+    }
+    .button:hover {
+        background-color: #dcdde1 !important; 
+    }
+    .button:focus{
+    outline:none;
     }
 </style>
