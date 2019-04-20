@@ -4,7 +4,15 @@
             <img src="../assets/store.png" width="50px" height="50px" alt="">
             Shopping Fruits
         </a>
-        {{ dataTime }}
+        <h4 class="hours ml-auto">
+            {{ dataTime }}
+            <template v-if="hours < 19">
+                <img src="../assets/sun.png" width="50px" height="50px">
+            </template>
+            <template v-else>
+                <img src="../assets/moon.png" width="50px" height="50px">
+            </template>
+        </h4>
     </nav>
 </template>
 <script>
@@ -12,7 +20,8 @@ import { setTimeout } from 'timers';
 export default {
     data() {
         return {
-            dataT: ''
+            dataT: '',
+            hours: 0
         }
     },
     computed: {
@@ -36,6 +45,7 @@ export default {
                 if(seconds < 10) {
                     seconds = '0'+seconds
                 }
+                vm.hours = hours
                 vm.dataT = `${hours}:${minutes}:${seconds}`
             }, 1000);
             return this.dataT
@@ -43,14 +53,18 @@ export default {
     }
 }
 </script>
-
 <style>
     .navbar {
         background-color: #48dbfb!important; 
     }
     .navbar-brand {
-        font-size: 34px!important;
+        font-size: 30px!important;
         font-weight: bold;
         color :#0a3d62!important;
+    }
+    .hours {
+        font-weight: bold;
+        font-size: 28px!important;
+        padding-right: 10px;
     }
 </style>

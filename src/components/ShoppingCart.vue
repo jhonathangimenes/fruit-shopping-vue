@@ -1,13 +1,13 @@
 <template>
     <li class="list-group-item template">
-        <div class="col-2">
+        <div class="col-2 img-fruit">
             <img :src="require('../assets/'+this.fruit.img)" width="50px" height="50px"/>
         </div>
-        <div class="col-5">
+        <div class="col-5 frui-description">
             <span>{{ descriptionFormatted }} {{ fruit.kg }}</span>
             <span>{{ subtotalFormatted }}</span>
         </div>
-        <div class="col-4 text-right">
+        <div class="col-4 fruit-qtde text-right">
             <button class="button" @click.prevent="removeAmount()">
                 <i class="fas fa-minus"></i>
             </button>
@@ -16,7 +16,7 @@
                 <i class="fas fa-plus"></i>
             </button>
         </div>
-        <div class="col-1">
+        <div class="col-1 remove">
             <button class="ml-2 button" @click.prevent="removeFruit()">
                 <i class="far fa-trash-alt"></i>
             </button>
@@ -70,17 +70,17 @@ export default {
     .template {
         display: flex;
     }
-    .col-2 {
+    .img-fruit {
         padding-left: 0px;
         padding-right: 0px;
     }
-    .col-5 {
+    .frui-description {
         padding: 7px 0px 7px 0px;  
     }
-    .col-4 {
+    .fruit-qtde {
         padding: 7px 0px 7px 0px; 
     }
-    .col-1 {
+    .remove {
         padding: 7px 0px 7px 0px; 
     }
     .button {

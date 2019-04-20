@@ -20,6 +20,7 @@ export default {
 <style>
   #app {
     font-family: 'Permanent Marker', cursive;
+    color :#222f3e!important;
   }
 </style>
 

@@ -1,10 +1,13 @@
 <template>
     <div class="container">
         <div class="row">
-            <div class="col-md-7">
+            <div class="col-md-7 mb-2">
                 <ul class="list-group">
                     <li class="list-group-item title">
-                        <h3>Choose the fruits <img src="../assets/fruits.png" width="40px" height="40px" alt="cart"></h3>
+                        <h3>
+                            Choose the fruits 
+                            <img src="../assets/fruits.png" width="40px" height="40px" alt="cart">
+                        </h3>
                     </li>
                     <FruitItem v-for="fruit in fruits"
                     :key="fruit.id"
@@ -15,7 +18,19 @@
             <div class="col-md-5">
                 <ul class="list-group">
                     <li class="list-group-item title">
-                        <h3>Cart <img src="../assets/cart.png" width="40px" height="40px" alt="cart"></h3>
+                        <div class="row">
+                            <div class="col-8">
+                                <h3>
+                                    Cart 
+                                    <img src="../assets/cart.png" width="40px" height="40px" alt="cart">
+                                </h3>
+                            </div>
+                            <div class="col-4 text-right remove-div">
+                                <button class="remove-all" @click.prevent="removeAll()">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </div>
+                        </div>
                     </li>
                     <template v-if="cart == 0">
                         <li class="list-group-item text-center">
@@ -99,6 +114,10 @@
                     }
                 }
 
+            },
+            removeAll() {
+                this.cart = []
+                this.total = 0
             }
         }
     }
@@ -114,5 +133,21 @@
     }
     .title {
         background-color: #48dbfb!important; 
+    }
+    .remove-all {
+        border:none!important;
+        background-color: #48dbfb!important;
+        padding: 6px 14px 6px 14px;
+        border-radius: 100%;
+        font-size: 22px;
+    }
+    .remove-all:hover {
+        background-color: #2e86de !important; 
+    }
+    .remove-all:focus{
+    outline:none;
+    }
+    .remove-div {
+        padding-right: 3px 
     }
 </style>
