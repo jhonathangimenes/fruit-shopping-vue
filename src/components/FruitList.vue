@@ -97,7 +97,7 @@
                     this.cart.push(event)
                     this.total += event.value
                 }else {
-                    alert('Objeto já adicionado ao Carrinho')
+                    alert('Fruit already added to cart')
                 }
             },
             removeFruit(event) {
