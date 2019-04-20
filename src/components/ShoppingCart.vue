@@ -1,7 +1,7 @@
 <template>
     <li class="list-group-item template">
         <div class="col-2 img-fruit">
-            <img :src="require('../assets/'+this.fruit.img)" width="50px" height="50px"/>
+            <img :src="require('../assets/'+this.fruit.img)" width="45px" height="45px"/>
         </div>
         <div class="col-5 frui-description">
             <span>{{ descriptionFormatted }} {{ fruit.kg }}</span>
@@ -71,8 +71,8 @@ export default {
         display: flex;
     }
     .img-fruit {
-        padding-left: 0px;
-        padding-right: 0px;
+        padding-left: 0px!important;
+        padding-right: 0px!important;
     }
     .frui-description {
         padding: 7px 0px 7px 0px;  

@@ -1,8 +1,12 @@
 <template>
-    <li class="list-group-item" @click="addCart()">
-        <img :src="require('../assets/'+this.fruit.img)" width="50px" height="50px"/>
-        <span class="item">{{ descriptionFormatted }} 1Kg</span>
-        <span class="item">{{ valueFormatted }}</span>
+    <li class="list-group-item template" @click="addCart()">
+            <div class="col-8 img-fruit-description">
+                <img :src="require('../assets/'+this.fruit.img)" width="45px" height="45px"/>
+                <span class="item">{{ descriptionFormatted }} 1Kg</span>
+            </div>
+            <div class="col-4 text-right value">
+                <span class="item">{{ valueFormatted }}</span>
+            </div>
     </li>
 </template>
 
@@ -33,6 +37,12 @@ export default {
 </script>
 
 <style>
+    .template {
+        display: flex;
+    }
+    .img-fruit-description {
+        padding-left: 0px;
+    }
     .button-kg {
         border-style: solid;
         border-width: 1px;
@@ -41,6 +51,9 @@ export default {
         height: 30px;
         font-size: 15px;
         text-align: center;
+    }
+    .value {
+        padding-right: 0px
     }
     .item {
         margin: 5px;

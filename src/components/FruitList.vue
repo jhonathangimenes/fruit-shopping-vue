@@ -27,14 +27,14 @@
                             </div>
                             <div class="col-4 text-right remove-div">
                                 <button class="remove-all" @click.prevent="removeAll()">
-                                    <i class="fas fa-trash-alt"></i>
+                                    <img src="../assets/garbage.png" width="40px" height="40px" alt="cart">
                                 </button>
                             </div>
                         </div>
                     </li>
                     <template v-if="cart == 0">
                         <li class="list-group-item text-center">
-                            <h3>Empty <img src="../assets/sad.png" width="40px" height="40px" alt="cart"></h3>
+                            <h3>No fruits <img src="../assets/sad.png" width="40px" height="40px" alt="remove all"></h3>
                         </li>
                     </template>
                     <template v-else>
@@ -74,7 +74,6 @@
                 ],
                 cart: [],
                 total: 0.0,
-                wallet: 58.00,
                 backgroundMoney: ''
             }
         },
@@ -85,11 +84,7 @@
         },
         watch: {
             total(newValue) {
-                if(newValue < this.wallet) {
-                    this.backgroundMoney = 'background-color: #78e08f'
-                } else {
-                    this.backgroundMoney = 'background-color: #ee5253'
-                }
+                this.backgroundMoney = 'background-color: #78e08f'
                 var vm = this;
                 setTimeout(function(){
                     vm.backgroundMoney = ''
@@ -137,12 +132,9 @@
     .remove-all {
         border:none!important;
         background-color: #48dbfb!important;
-        padding: 6px 14px 6px 14px;
-        border-radius: 100%;
-        font-size: 22px;
     }
     .remove-all:hover {
-        background-color: #2e86de !important; 
+        transform: scale(1.1);
     }
     .remove-all:focus{
     outline:none;
