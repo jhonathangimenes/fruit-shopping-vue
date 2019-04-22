@@ -19,7 +19,7 @@ export default {
 </script>
 <style>
   #app {
-    font-family: 'Permanent Marker', cursive;
+    font-family: Times, "Times New Roman", Georgia, serif;
     color :#222f3e!important;
   }
 </style>
