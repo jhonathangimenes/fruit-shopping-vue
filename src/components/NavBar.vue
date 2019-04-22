@@ -2,7 +2,7 @@
     <nav class="navbar navbar-light bg-light mb-2">
         <a class="navbar-brand" href="#">
             <img src="../assets/store.png" width="50px" height="50px" alt="">
-            Shopping Fruits
+            Loja de Frutas
         </a>
         <h4 class="hours ml-auto">
             {{ dataTime }}

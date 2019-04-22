@@ -5,7 +5,7 @@
                 <ul class="list-group">
                     <li class="list-group-item title">
                         <h3>
-                            Choose the fruits 
+                            Escolha as frutas 
                             <img src="../assets/fruits.png" width="40px" height="40px" alt="cart">
                         </h3>
                     </li>
@@ -21,7 +21,7 @@
                         <div class="row">
                             <div class="col-8">
                                 <h3>
-                                    Cart 
+                                    Carrinho
                                     <img src="../assets/cart.png" width="40px" height="40px" alt="cart">
                                 </h3>
                             </div>
@@ -34,7 +34,7 @@
                     </li>
                     <template v-if="cart == 0">
                         <li class="list-group-item text-center">
-                            <h3>No fruits <img src="../assets/sad.png" width="40px" height="40px" alt="remove all"></h3>
+                            <h3>Carrinho vazio <img src="../assets/sad.png" width="40px" height="40px" alt="remove all"></h3>
                         </li>
                     </template>
                     <template v-else>
@@ -66,11 +66,11 @@
         data() {
             return {
                 fruits:[
-                    {id: 1, description: 'apple', value: 2.25, img: 'fruits/apple.png'},
+                    {id: 1, description: 'maça', value: 2.25, img: 'fruits/apple.png'},
                     {id: 2, description: 'banana', value: 1.10, img: 'fruits/banana.png'},
-                    {id: 3, description: 'grape', value: 7.40, img: 'fruits/grape.png'},
-                    {id: 4, description: 'orange', value: 3.75, img: 'fruits/orange.png'},
-                    {id: 6, description: 'strawberry', value: 10.35, img: 'fruits/strawberry.png'}
+                    {id: 3, description: 'uva', value: 7.40, img: 'fruits/grape.png'},
+                    {id: 4, description: 'laranja', value: 3.75, img: 'fruits/orange.png'},
+                    {id: 6, description: 'morango', value: 10.35, img: 'fruits/strawberry.png'}
                 ],
                 cart: [],
                 total: 0.0,
@@ -97,7 +97,7 @@
                     this.cart.push(event)
                     this.total += event.value
                 }else {
-                    alert('Fruit already added to cart')
+                    alert('Essa fruta já foi adicionada ao carrinho')
                 }
             },
             removeFruit(event) {
